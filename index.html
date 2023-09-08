@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;700&family=Poppins:ital,wght@0,700;1,900&family=Red+Hat+Display:wght@300;400&family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="profile">
+            <img src="IMG-20230709-WA0013_1 (2).jpg" alt="Your Slack Username" data-testid="slackDisplayImage">
+            <h1 data-testid="slackUserName">Godson</h1>
+        </div>
+        <div class="data">
+            <p><strong>Current Day of the Week:</strong> <span data-testid="currentDayOfTheWeek"></span></p>
+            <p><strong>Current UTC Time (milliseconds):</strong> <span data-testid="currentUTCTime"></span></p>
+            <p><strong>Track:</strong> <span data-testid="myTrack">Frontend</span></p>
+        </div>
+        <div class="github-link">
+            <a href="https://github.com/godson12345/order-summary" data-testid="githubURL">GitHub Repository</a>
+    </div>
+        <script>
+            // Function to update the current day of the week
+            function updateDayOfTheWeek() {
+                const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+                const currentDate = new Date();
+                const dayOfWeek = daysOfWeek[currentDate.getUTCDay()];
+                document.querySelector('[data-testid="currentDayOfTheWeek"]').textContent = dayOfWeek;
+            }
+        
+            // Function to update the current UTC time in milliseconds
+            function updateUTCTime() {
+                const currentTimeMillis = Date.now();
+                document.querySelector('[data-testid="currentUTCTime"]').textContent = currentTimeMillis;
+            }
+        
+            // Call the functions to update data on page load
+            updateDayOfTheWeek();
+            updateUTCTime();
+        </script>
+    </div>
+</body>
+</html>
